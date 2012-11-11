@@ -2,93 +2,103 @@ package jp.sunflower09.common.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Task implements Serializable {
-	/**
+  /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1931971779466720842L;
+  private static final long serialVersionUID = 1931971779466720842L;
 
-	private Integer id;
-	private boolean complete;
-	private String taskType;
-	private String section;
-	private String title;
-	private boolean repeat;
-	private Timestamp startTime;
-	private Timestamp endTime;
-	private float actualMinute;
+  private Integer id = null;
+  private Date taskDate = null;
+  private Boolean complete = null;
+  private String taskType = null;
+  private String section = null;
+  private String title = null;
+  private Boolean repeat = null;
+  private Timestamp startTime = null;
+  private Timestamp endTime = null;
+  private Float actualMinute = null;
 
-	public Integer getId() {
-		return id;
-	}
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public boolean isComplete() {
-		return complete;
-	}
+  public Date getTaskDate() {
+    return this.taskDate;
+  }
 
-	public void setComplete(boolean complete) {
-		this.complete = complete;
-	}
+  public void setTaskDate(Date taskDate) {
+    this.taskDate = taskDate;
+  }
 
-	public String getTaskType() {
-		return taskType;
-	}
+  public Boolean isComplete() {
+    return complete;
+  }
 
-	public void setTaskType(String taskType) {
-		this.taskType = taskType;
-	}
+  public void setComplete(Boolean complete) {
+    this.complete = complete;
+  }
 
-	public String getSection() {
-		return section;
-	}
+  public String getTaskType() {
+    return taskType;
+  }
 
-	public void setSection(String section) {
-		this.section = section;
-	}
+  public void setTaskType(String taskType) {
+    this.taskType = taskType;
+  }
 
-	public String getTitle() {
-		return title;
-	}
+  public String getSection() {
+    return section;
+  }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+  public void setSection(String section) {
+    this.section = section;
+  }
 
-	public boolean isRepeat() {
-		return repeat;
-	}
+  public String getTitle() {
+    return title;
+  }
 
-	public void setRepeat(boolean repeat) {
-		this.repeat = repeat;
-	}
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-	public Timestamp getStartTime() {
-		return startTime;
-	}
+  public Boolean isRepeat() {
+    return repeat;
+  }
 
-	public void setStartTime(Timestamp startTime) {
-		this.startTime = startTime;
-	}
+  public void setRepeat(Boolean repeat) {
+    this.repeat = repeat;
+  }
 
-	public Timestamp getEndTime() {
-		return endTime;
-	}
+  public Timestamp getStartTime() {
+    return startTime;
+  }
 
-	public void setEndTime(Timestamp endTime) {
-		this.endTime = endTime;
-	}
+  public void setStartTime(Timestamp startTime) {
+    this.startTime = startTime;
+  }
 
-	public float getActualMinute() {
-		return actualMinute;
-	}
+  public Timestamp getEndTime() {
+    return endTime;
+  }
 
-	public void setActualMinute(float actualMinute) {
-		this.actualMinute = actualMinute;
-	}
+  public void setEndTime(Timestamp endTime) {
+    this.endTime = endTime;
+  }
+
+  public Float getActualMinute() {
+    return actualMinute;
+  }
+
+  public void setActualMinute(Float actualMinute) {
+    this.actualMinute = actualMinute;
+  }
 
 }

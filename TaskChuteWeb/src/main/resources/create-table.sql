@@ -2,6 +2,7 @@ create table message(id integer primary key, message varchar(128));
 
 create table task(
 	id integer auto_increment primary key,
+	task_date date,
 	complete boolean,
 	task_type char(2),
 	section char(1),

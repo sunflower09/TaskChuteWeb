@@ -5,11 +5,61 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="jp.sunflower09.common.dao.TaskMapper">
 
   <cache />
+  
+  <resultMap type="Task" id="taskResult">
+    <result column="id" property="id" />
+    <result column="task_date" property="taskDate" />
+    <result column="complete" property="complete" />
+    <result column="task_type" property="taskType" />
+    <result column="section" property="section" />
+    <result column="title" property="title" />
+    <result column="repeat" property="repeat" />
+    <result column="start_time" property="startTime" />
+    <result column="end_time" property="endTime" />
+    <result column="actual_minute" property="actualMinute" />
+  </resultMap>
 
   <select id="selectByPrimaryKey" resultType="Task" parameterType="int">
     SELECT
       *
     FROM task
     WHERE id = #{id}
+  </select>
+  
+  <select id="findByQuery" resultType="Task" parameterType="jp.sunflower09.common.bean.TaskCondition">
+    SELECT
+      *
+    FROM task
+    <where>
+      <if test="id != null">
+        id = #{id}
+      </if>
+      <if test="complete != null">
+        ANd complete = #{complete}
+      </if>
+      <if test="taskType != null &amp;&amp; task.length &gt; 0">
+        AND task_type = #{taskType}
+      </if>
+      <if test="section != null &amp;&amp; section.length &gt; 0">
+        AND section = #{section}
+      </if>     
+      <if test="title != null &amp;&amp; title.length &gt; 0">
+        AND title like '%' || ${title} || '%'
+      </if>
+      <if test="repeat != null">
+        AND repeat = #{repeat}
+      </if>
+      <if test="startTimeFrom != null || startTimeTo !=null">
+        AND (
+        <if test="startTimeFrom != null">
+          start_time &lt;= #{startTimeFrom}
+        </if>
+        <if test="startTimeTo != null">
+          OR start_time &gt;= #{startTimeTo}
+        </if>
+         )
+      </if>
+    </where>
+    
   </select>
 </mapper>
