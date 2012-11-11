@@ -1,0 +1,2 @@
+insert into message values(1, 'Hello World!');
+insert into task(repeat, task_type, section, title, complete, start_time, end_time, actual_minute) values(false, '01', 'A', 'タイトル', false, '2012-11-11 00:00:00', '2012-11-11 00:03:00', 3);
